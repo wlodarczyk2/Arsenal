@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Players
+{% endblock %}
+
+{% block header %} 
+<h4>Current Players</h4>
+{% endblock %}
+
+{% block content %}
+{% include "add_form.html" %}
+
+    <table class="table" method="GET">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Role on a pitch</th>
+            <th scope="col" >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+                <tr>
+                    <th>{{ loop.index }}</th>   
+                    <td>{{ player.name }}</td>
+                    <td>{{ player.last_name }}</td>
+                    <td>{{ player.country }}</td>
+                    <td>{{ player.date_of_birth }}</td>
+                    <td>{{ player.role_on_a_pitch}}</td>
+                    <td>
+                        <a type="button" class="btn btn-success" href="{{ url_for('update', id=player.id) }}">Edit Player</a>
+                        <a type="button" class="btn btn-danger" href="{{ url_for('delete', id=player.id) }}">Delete Player</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal-AddPlayer">
+        Add New Player
+    </button>
+
+{% endblock %}
+

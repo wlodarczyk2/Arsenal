@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Users
+{% endblock %}
+
+{% block header %} 
+<h4>Users</h4>
+{% endblock %}
+
+{% block content %}
+    <table class="table" method="GET">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email Adress</th>
+            <th scope="col">Registration date</th>
+            <th scope="col">Is Admin?</th>
+            <th scope="col">Is Active Now</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                <th>{{ loop.index }}</th>    
+                <td>{{ user.username }}</td>
+                <td>{{ user.email_adress }}</td>
+                <td>{{ user.reg_date }}</td>
+                <td>
+                    {% if user.is_admin == True %}
+                        &#10004;
+                    {% else %}
+                        &#10006;
+                    {% endif %}
+                </td>
+                <td>
+                    {% if user.is_active_now == True %}
+                        &#10004;
+                    {% else %}
+                        &#10006;
+                    {% endif %}
+                </td>
+                </tr>
+            {% endfor %}   
+        </tbody>
+        </table>
+
+{% endblock %}

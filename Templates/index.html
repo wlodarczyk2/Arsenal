@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Welcome to Arsenal Fan Site!
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1>Welcome to Arsenal Fan Site!</h1>
+        <br>
+        <img src="/static/arsenal_logo.jpg" style="width:204px;height:240px;">
+        <br>
+        <br>
+        <h2>We are happy to see you here!</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        <a class="btn btn-primary d-grid col-1 mx-auto" href="{{ url_for('login') }}">Get Started</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} 
+Register Page
+{% endblock %}
+
+{% block content %}
+<body> 
+    <div class="d-grid gap-2 col-6 mx-auto text-center">         
+        <form class="d-grid gap-2 col-6 mx-auto" method="POST">
+            {{ form.hidden_tag() }}
+            <h4>
+            Please Create your Account
+            </h4>
+            <br>
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User Name") }}
+
+            {{ form.email_adress.label() }}
+            {{ form.email_adress(class="form-control", placeholder="Email Adress") }}
+
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control", placeholder="Password") }}
+        
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+
+            <br>
+            {{ form.submit(class="btn btn-primary") }}
+
+            <br>
+            <div>
+                <h6>
+                    <b>Already have an account?</b>
+                </h6>
+                 <a class="btn btn-sm btn-secondary" href="{{ url_for('login') }}">Login</a>
+            </div>
+        </form>
+          
+    </div>
+</body> 
+{% endblock %}

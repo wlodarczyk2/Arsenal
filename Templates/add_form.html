@@ -1,0 +1,32 @@
+
+{% block content %}
+
+  <div class="modal fade" id="Modal-AddPlayer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Player</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {{ add_form.hidden_tag() }}
+                    {{ add_form.name.label() }}
+                    {{ add_form.name(class="form-control", placeholder="Name") }}
+                    {{ add_form.last_name.label() }}
+                    {{ add_form.last_name(class="form-control", placeholder="Last Name") }}    
+                    {{ add_form.country.label() }}
+                    {{ add_form.country(class="form-control", placeholder="Country") }}
+                    {{ add_form.date_of_birth.label() }}
+                    {{ add_form.date_of_birth(class="form-control", placeholder="Date of Birth") }}  
+                    {{ add_form.role_on_a_pitch.label() }}
+                    {{ add_form.role_on_a_pitch(class="form-control", placeholder="Role on a pitch") }} 
+                    <br>
+                    {{ add_form.submit(class="btn btn-primary") }}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

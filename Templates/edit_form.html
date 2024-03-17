@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} 
+Edit Player Page
+{% endblock %}
+
+{% block content %}
+  <body>
+    <div class="d-grid gap-2 col-6 mx-auto text-center">         
+        <form class="d-grid gap-2 col-6 mx-auto" method="POST">
+            <h4>
+            Edit Player
+            </h4>
+            <br>
+            {{ edit_form.name.label() }}
+            {{ edit_form.name(class="form-control", value=player_to_edit.name) }}
+            {{ edit_form.last_name.label() }}
+            {{ edit_form.last_name(class="form-control", value=player_to_edit.last_name) }}    
+            {{ edit_form.country.label() }}
+            {{ edit_form.country(class="form-control", value=player_to_edit.country) }}
+            {{ edit_form.date_of_birth.label() }}
+            {{ edit_form.date_of_birth(class="form-control", value=player_to_edit.date_of_birth) }}  
+            {{ edit_form.role_on_a_pitch.label() }}
+            {{ edit_form.role_on_a_pitch(class="form-control", value=player_to_edit.role_on_a_pitch) }} 
+            <br>
+            {{ edit_form.submit(class="btn btn-primary") }}
+            <br>
+            <div>
+              <a class="btn btn-sm btn-secondary" href="{{ url_for('players') }}">Close</a>
+            </div>
+        </form>
+    </div>
+  </body>
+{% endblock %}
